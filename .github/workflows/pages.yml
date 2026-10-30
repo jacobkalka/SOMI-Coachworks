@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Prepare site for the Pages subpath
-        run: python3 scripts/build-pages.py --base "/${{ github.event.repository.name }}" --origin "https://${GITHUB_REPOSITORY_OWNER,,}.github.io" --out _site
+        run: python3 scripts/build-pages.py --base "" --origin "https://${GITHUB_REPOSITORY_OWNER,,}.github.io" --out _site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
