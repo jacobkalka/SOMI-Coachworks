@@ -83,15 +83,18 @@ Upload the **contents of `dist/`** as the root of a domain or subdomain on any s
 `/es/…`). For a subpath host, `scripts/build-pages.py` writes a copy with those links (and the
 canonical origin) rewritten, leaving `dist/` untouched.
 
-### GitHub Pages
+### Vercel (live site)
 
-`.github/workflows/pages.yml` publishes the site to `https://jacobkalka.github.io/SOMI-Coachworks/`
+`vercel.json` serves `dist/` as-is (no build step) on https://southmiamicoachworks.com, with security headers (CSP, HSTS, nosniff, frame and permissions policies) and asset caching. Import this repository in Vercel, keep the defaults it picks up from `vercel.json`, then add the domain under Project → Settings → Domains. Each push to the production branch redeploys.
+
+### GitHub Pages (backup copy)
+
+`.github/workflows/pages.yml` can publish a backup copy, when run by hand from the Actions tab, to `https://jacobkalka.github.io/SOMI-Coachworks/`
 on every push to the default branch (or `main`), using `scripts/build-pages.py`. One-time setup:
 **Settings → Pages → Build and deployment → Source: GitHub Actions**, then re-run the workflow
 from the Actions tab.
 
-Before going live on a new domain, change `ORIGIN` in `scripts/build-site.py` (currently
-`https://somicoachworks.jkalka28227.chatgpt.site`, no trailing slash) and rebuild — it updates
+`ORIGIN` in `scripts/build-site.py` is `https://southmiamicoachworks.com` (no trailing slash). If the domain ever changes, update it there and `SOURCE_ORIGIN` in `scripts/build-pages.py`, then rebuild — it updates
 canonical/hreflang URLs, social-share metadata, structured data, sitemap and robots.
 
 See `docs/migration/SETUP_AND_HOSTING.md` for the full cutover checklist and an NGINX example.

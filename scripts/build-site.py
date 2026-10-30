@@ -7,7 +7,7 @@ from icons import icon, GOOGLE_G
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
-ORIGIN = 'https://somicoachworks.jkalka28227.chatgpt.site'
+ORIGIN = 'https://southmiamicoachworks.com'
 IG = 'https://www.instagram.com/somicoachworks/'
 MAP = 'https://www.google.com/maps/search/?api=1&query=South+Miami+Coach+Works+5780+SW+68th+St'
 DIRECTIONS = 'https://www.google.com/maps/dir/?api=1&destination=South+Miami+Coach+Works+5780+SW+68th+St+South+Miami+FL+33143'
@@ -226,7 +226,7 @@ def form(d):
 def home(d):
  faq={'@type':'FAQPage','@id':ORIGIN+d['home']+'#faq','inLanguage':'es-US' if d['lang']=='es' else 'en-US','mainEntity':[{'@type':'Question','name':q,'acceptedAnswer':{'@type':'Answer','text':a}} for q,a in d['faqs']]}
  h=head(d,extra=[faq])+header(d)+'<main id="main">'
- h+=f'''<section class="hero" aria-labelledby="hero-title"><picture class="hero-picture"><source srcset="/assets/shop-exterior.webp" type="image/webp"><img class="hero-photo" src="/assets/shop-exterior.jpg" alt="{'Fachada y estacionamiento de South Miami Coach Works en 5780 SW 68th St' if d['lang']=='es' else 'South Miami Coach Works exterior and front parking lot at 5780 SW 68th St'}" width="1525" height="1031" fetchpriority="high"></picture><div class="hero-shade"></div><div class="container hero-content"><h1 id="hero-title">{d['hero']}</h1><p class="hero-description">{d['hero_copy']}</p><div class="hero-actions">{button(d['call'],'tel:+13053978911')}{button(d['estimate'],'#estimate','outline')}</div><a class="hero-proof" href="{MAP}" target="_blank" rel="noopener noreferrer"><span class="stars" aria-hidden="true">★★★★★</span><span>{d['rating']}</span></a></div></section><div class="trust-strip"><div class="container trust-inner">{''.join('<span>'+icon(k)+x+'</span>' for k,x in zip(['estimate','makes','insurance','language'],d['trust']))}</div></div>'''
+ h+=f'''<section class="hero" aria-labelledby="hero-title"><picture class="hero-picture"><source srcset="/assets/shop-exterior.webp" type="image/webp"><img class="hero-photo" src="/assets/shop-exterior.jpg" alt="{'Fachada y estacionamiento de South Miami Coach Works en 5780 SW 68th St' if d['lang']=='es' else 'South Miami Coach Works exterior and front parking lot at 5780 SW 68th St'}" width="1086" height="1448" fetchpriority="high"></picture><div class="hero-shade"></div><div class="container hero-content"><h1 id="hero-title">{d['hero']}</h1><p class="hero-description">{d['hero_copy']}</p><div class="hero-actions">{button(d['call'],'tel:+13053978911')}{button(d['estimate'],'#estimate','outline')}</div><a class="hero-proof" href="{MAP}" target="_blank" rel="noopener noreferrer"><span class="stars" aria-hidden="true">★★★★★</span><span>{d['rating']}</span></a></div></section><div class="trust-strip"><div class="container trust-inner">{''.join('<span>'+icon(k)+x+'</span>' for k,x in zip(['estimate','makes','insurance','language'],d['trust']))}</div></div>'''
  h+=f'''<section class="section services-section" id="services"><div class="container"><div class="section-heading"><div><h2>{d['services_title']}</h2></div><p>{d['services_intro']}</p></div><div class="service-card-grid">'''
  for s in d['service_data']:
   h+=f'<article class="service-card"><span class="service-icon">{icon(SERVICE_ICONS[s[0]])}</span><h3>{s[1]}</h3><p>{s[2]}</p><a class="text-link" href="{d["home"]}services/{s[0]}/">{d["learn"]}</a></article>'

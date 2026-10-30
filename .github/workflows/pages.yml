@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
+# The live site is hosted on Vercel (vercel.json). This GitHub Pages copy now only
+# deploys when run by hand from the Actions tab.
 on:
-  push:
-    branches: [claude/gallant-carson-x1tesx, main]
   workflow_dispatch:
 
 permissions:

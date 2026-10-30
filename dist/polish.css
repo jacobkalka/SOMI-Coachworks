@@ -306,3 +306,7 @@ dialog{border-radius:8px}
  .photo-open>img,.service-card,.map-wrap iframe{transition:none}
  .photo-open:hover>img{transform:none}
 }
+
+/* Hero photo: portrait shot of the shop, cropped to keep the sign and the cars in view */
+.hero-photo{object-position:50% 40%}
+@media(max-width:720px){.hero-photo{aspect-ratio:4/3;object-position:50% 52%}}

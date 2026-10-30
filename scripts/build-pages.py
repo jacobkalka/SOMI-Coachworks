@@ -13,7 +13,7 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
-SOURCE_ORIGIN = 'https://somicoachworks.jkalka28227.chatgpt.site'
+SOURCE_ORIGIN = 'https://southmiamicoachworks.com'
 
 
 def main():
